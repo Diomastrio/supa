@@ -35,13 +35,3 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 }
-// Exception has occurred.
-// FlutterError (Could not find a generator for route RouteSettings("/login", null) in the _WidgetsAppState.
-// Make sure your root app widget has provided a way to generate
-// this route.
-// Generators for routes are searched for in the following order:
-//  1. For the "/" route, the "home" property, if non-null, is used.
-//  2. Otherwise, the "routes" table is used, if it has an entry for the route.
-//  3. Otherwise, onGenerateRoute is called. It should return a non-null value for any valid route not handled by "home" and "routes".
-//  4. Finally if all else fails onUnknownRoute is called.
-// Unfortunately, onUnknownRoute was not set.)
