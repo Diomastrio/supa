@@ -56,62 +56,68 @@ class _AccountPageState extends State<AccountPage> {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          Avatar(
-              imageUrl: _imageUrl,
-              onUpload: (imageUrl) async {
-                setState(() {
-                  _imageUrl = imageUrl;
-                });
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: ListView(
+          children: [
+            Avatar(
+                imageUrl: _imageUrl,
+                onUpload: (imageUrl) async {
+                  setState(() {
+                    _imageUrl = imageUrl;
+                  });
+                  final userId = supabase.auth.currentUser!.id;
+                  await supabase
+                      .from('profiles')
+                      .update({'avatar_url': imageUrl}).eq('id', userId);
+                }),
+            const SizedBox(
+              height: 12,
+            ),
+            const Padding(padding: EdgeInsets.all(12)),
+            TextFormField(
+              controller: _usernameController,
+              decoration:
+                  const InputDecoration(label: Text('nombre de usuario')),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            TextFormField(
+              controller: _websiteController,
+              decoration: const InputDecoration(label: Text('sitio')),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final username = _usernameController.text.trim();
+                final website = _websiteController.text.trim();
                 final userId = supabase.auth.currentUser!.id;
-                await supabase
-                    .from('profiles')
-                    .update({'avatar_url': imageUrl}).eq('id', userId);
-              }),
-          const SizedBox(
-            height: 12,
-          ),
-          const Padding(padding: EdgeInsets.all(12)),
-          TextFormField(
-            controller: _usernameController,
-            decoration: const InputDecoration(label: Text('nombre de usuario')),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          TextFormField(
-            controller: _websiteController,
-            decoration: const InputDecoration(label: Text('sitio')),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              final username = _usernameController.text.trim();
-              final website = _websiteController.text.trim();
-              final userId = supabase.auth.currentUser!.id;
-              await supabase.from('profiles').update({
-                'username': username,
-                'website': website,
-              }).eq('id', userId);
-              if (mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Tus datos han sido guardados')));
-              }
-            },
-            child: const Text('guardar'),
-          ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TabsScreen()));
-            },
-            child: const Text('Entrar'),
-          ),
-        ],
+                await supabase.from('profiles').update({
+                  'username': username,
+                  'website': website,
+                }).eq('id', userId);
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Tus datos han sido guardados')));
+                }
+              },
+              child: const Text('guardar'),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TabsScreen()));
+              },
+              child: const Text('Entrar'),
+            ),
+          ],
+        ),
       ),
     );
   }

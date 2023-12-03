@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:supa/components/avatar.dart';
+import 'package:supa/components/avatarin.dart';
 import 'package:supa/main.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -41,19 +41,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
           margin: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              ClipOval(
-                child: Avatar(
-                  imageUrl: _imageUrl,
-                  onUpload: (imageUrl) async {
-                    setState(() {
-                      _imageUrl = imageUrl;
-                    });
-                    final userId = supabase.auth.currentUser!.id;
-                    await supabase
-                        .from('profiles')
-                        .update({'avatar_url': imageUrl}).eq('id', userId);
-                  },
-                ),
+              Avatarin(
+                imageUrl: _imageUrl,
+                onUpload: (imageUrl) async {
+                  setState(() {
+                    _imageUrl = imageUrl;
+                  });
+                  final userId = supabase.auth.currentUser!.id;
+                  await supabase
+                      .from('profiles')
+                      .update({'avatar_url': imageUrl}).eq('id', userId);
+                },
               ),
               const Padding(
                 padding: EdgeInsets.only(

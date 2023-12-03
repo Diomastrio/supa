@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:supa/pages/account_page.dart';
-import 'package:supa/routes/app_router.dart';
 import 'package:supa/widgets/main_drawer.dart';
 
 class TabsScreen extends StatelessWidget {
@@ -30,55 +29,191 @@ class TabsScreen extends StatelessWidget {
             icon: const Icon(Icons.arrow_forward_ios),
             onPressed: () {
               // Navigate to the LoginScreen
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const AccountPage()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AccountPage()),
+              );
             },
           ),
         ],
       ),
       body: ListView.separated(
-        itemBuilder: (context, index) => ListTile(
-          title: Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              border: Border.all(
-                  color:
-                      Colors.grey), // Add a border for a card-like appearance
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              children: [
-                Container(
-                  height: 120, // Set a fixed height for the image container
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image:
-                          AssetImage(AppRouter.categoriesOptions[index].image),
-                      fit: BoxFit
-                          .cover, // Ensure the image covers the entire container
+        itemBuilder: (context, index) {
+          switch (index) {
+            case 0:
+              return Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 120,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                              '../assets/images/coleccionables.jpeg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Coleccionables',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            case 1:
+              return Container(
+                height: 120,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('../assets/images/hogar.jpeg'),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  AppRouter.categoriesOptions[index].name,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                child: const Column(
+                  children: [
+                    Text(
+                      'Hogar',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              AppRouter.categoriesOptions[index].route,
-            );
-          },
-        ),
+              );
+            case 2:
+              return Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 120,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image:
+                              AssetImage('../assets/images/electronica2.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Electronica',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            case 3:
+              return Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 120,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('../assets/images/libros.jpeg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Libros',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            case 4:
+              return Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 120,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('../assets/images/vehiculos.jpeg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Vehiculos',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            case 5:
+              return Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 120,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('../assets/images/alerta.jpeg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Donaciones',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            default:
+              return Container();
+          }
+        },
         separatorBuilder: (_, __) => const Divider(),
-        itemCount: AppRouter.categoriesOptions.length,
+        itemCount: 6,
       ),
       bottomNavigationBar: BottomNavigationBar(
         // onTap: ,
