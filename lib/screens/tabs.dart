@@ -54,7 +54,7 @@ class TabsScreen extends StatelessWidget {
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image:
-                              AssetImage('/assets/images/coleccionables.jpeg'),
+                              AssetImage('assets/images/coleccionables.jpeg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -83,7 +83,7 @@ class TabsScreen extends StatelessWidget {
                       height: 120,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('/assets/images/hogar.jpeg'),
+                          image: AssetImage('assets/images/hogar.jpeg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -112,7 +112,7 @@ class TabsScreen extends StatelessWidget {
                       height: 120,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('/assets/images/electronica2.jpg'),
+                          image: AssetImage('assets/images/electronica2.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -141,7 +141,7 @@ class TabsScreen extends StatelessWidget {
                       height: 120,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('/assets/images/libros.jpeg'),
+                          image: AssetImage('assets/images/libros.jpeg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -170,7 +170,7 @@ class TabsScreen extends StatelessWidget {
                       height: 120,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('/assets/images/vehiculos.jpeg'),
+                          image: AssetImage('assets/images/vehiculos.jpeg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -199,7 +199,7 @@ class TabsScreen extends StatelessWidget {
                       height: 120,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('/assets/images/alerta.jpeg'),
+                          image: AssetImage('assets/images/alerta.jpeg'),
                           fit: BoxFit.cover,
                         ),
                       ),
