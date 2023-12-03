@@ -90,7 +90,7 @@ class TabsScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     const Text(
-                      'Electronica',
+                      'Hogar',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

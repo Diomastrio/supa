@@ -41,17 +41,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
           margin: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Avatarin(
-                imageUrl: _imageUrl,
-                onUpload: (imageUrl) async {
-                  setState(() {
-                    _imageUrl = imageUrl;
-                  });
-                  final userId = supabase.auth.currentUser!.id;
-                  await supabase
-                      .from('profiles')
-                      .update({'avatar_url': imageUrl}).eq('id', userId);
-                },
+              Padding(
+                padding:
+                    const EdgeInsets.only(top: 20.0), // Add padding to the top
+                child: Avatarin(
+                  imageUrl: _imageUrl,
+                  onUpload: (imageUrl) async {
+                    setState(() {
+                      _imageUrl = imageUrl;
+                    });
+                    final userId = supabase.auth.currentUser!.id;
+                    await supabase
+                        .from('profiles')
+                        .update({'avatar_url': imageUrl}).eq('id', userId);
+                  },
+                ),
               ),
               const Padding(
                 padding: EdgeInsets.only(

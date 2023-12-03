@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:supa/screens/chat.dart';
-import 'package:supa/screens/profile.dart';
-import 'package:supa/screens/tabs.dart';
+import 'package:supa/screens/screens.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key, required this.onSelectScreen});
@@ -44,7 +42,7 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: IconButton(
-              icon: const Icon(Icons.account_circle),
+              icon: const Icon(Icons.sensor_occupied_outlined),
               onPressed: () {
                 Navigator.push(
                     context,
@@ -73,7 +71,7 @@ class MainDrawer extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ProfileScreen()));
+                        builder: (context) => const FilterScreen()));
               },
             ),
             title: const Text('Filtros'),
@@ -89,6 +87,42 @@ class MainDrawer extends StatelessWidget {
               },
             ),
             title: const Text('Mensajes'),
+          ),
+          ListTile(
+            leading: IconButton(
+              icon: const Icon(Icons.settings_accessibility_sharp),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NotiScreen()));
+              },
+            ),
+            title: const Text('Notificaciones'),
+          ),
+          ListTile(
+            leading: IconButton(
+              icon: const Icon(Icons.support_agent_rounded),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AyudaScreen()));
+              },
+            ),
+            title: const Text('Ayuda y Soporte'),
+          ),
+          ListTile(
+            leading: IconButton(
+              icon: const Icon(Icons.business_rounded),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AcercaScreen()));
+              },
+            ),
+            title: const Text('Acerca de Swapii'),
           ),
         ], //children
       ),
