@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supa/pages/account_page.dart';
 import 'package:supa/widgets/main_drawer.dart';
+import 'package:supa/screens/favorites.dart';
 
 class TabsScreen extends StatelessWidget {
   const TabsScreen({Key? key}) : super(key: key);
@@ -222,20 +223,26 @@ class TabsScreen extends StatelessWidget {
         separatorBuilder: (_, __) => const Divider(),
         itemCount: 6,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        // onTap: ,
-        // currentIndex: _selectedPageIndex,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.set_meal),
-            label: 'Categorias',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Favoritos',
-          ),
-        ],
-      ),
+     bottomNavigationBar: BottomNavigationBar(
+  items: const [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.set_meal),
+      label: 'Categorias',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.star),
+      label: 'Favoritos',
+    ),
+  ],
+   onTap: (int index) {
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Favoritos()),
+      );
+    }
+  },
+),
     );
   }
 }

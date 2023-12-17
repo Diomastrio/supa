@@ -13,6 +13,7 @@ class AcercaScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+           mainAxisSize: MainAxisSize.min,
           children: [
             // App Overview
             const Text(
@@ -108,7 +109,7 @@ class AcercaScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset('assets/images/dark_swapii.png'),
-                  const Text('Vargas'),
+                  const Text('Vargas Reyes Miguel Angel'),
                 ],
               ),
             ),
